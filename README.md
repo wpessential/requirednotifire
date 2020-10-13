@@ -2,6 +2,10 @@
 RequiredNotiFire is the open source library. Used to apply the notifications fire in WordPress admin panel. If your theme used any plugin that is required. Used it to fire the notification.
 
 ## Used
+
+...
+
+```php
 RequiredNotifire::make( __( 'Thanks for', 'wpessential-blog-post' ) )
 ->plugin_check( 'example_plugin_slug' )
 ->desc( __( 'Example description to show in admin panel.', 'add_text_domain' ) )
