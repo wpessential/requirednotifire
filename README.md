@@ -3,10 +3,8 @@ RequiredNotiFire is the open source library. Used to apply the notifications fir
 
 ## Used
 
-...
-
 ```php
-RequiredNotifire::make( __( 'Thanks for', 'wpessential-blog-post' ) )
+RequiredNotifire::make( __( 'Thanks for', 'add_text_domain' ) )
 ->plugin_check( 'example_plugin_slug' )
 ->desc( __( 'Example description to show in admin panel.', 'add_text_domain' ) )
 ->dismiss( true )
