@@ -1,4 +1,7 @@
 <?php
+/*
+ * Copyright (c) 2020. This file is copyright by WPEssential.
+ */
 
 namespace WPEssentialRequireNotifier;
 
@@ -10,7 +13,7 @@ namespace WPEssentialRequireNotifier;
  * Version:1.0.0
  */
 
-final class RequiredNotifire
+final class RequireNotifier
 {
 	public $title        = '';
 	public $desc         = '';
