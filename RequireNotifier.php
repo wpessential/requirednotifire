@@ -1,4 +1,7 @@
 <?php
+
+namespace WPEssentialRequireNotifier;
+
 /*
  * Required NotiFire is the open source library. Used to apply the notifications fire in WordPress admin panel.
  *
