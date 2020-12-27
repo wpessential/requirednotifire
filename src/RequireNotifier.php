@@ -6,7 +6,7 @@
 namespace WPEssentialRequireNotifier;
 
 /*
- * Required NotiFire is the open source library. Used to apply the notifications fire in WordPress admin panel.
+ * Require NotiFier is the open source library. Used to apply the notifications fire in WordPress admin panel.
  *
  * (c) WPEssential <WordPress.essential@gmail.com>
  *
@@ -133,14 +133,14 @@ final class RequireNotifier
 
 		if ( $is_wpe_installed ) {
 			if ( ! current_user_can( 'activate_plugins' ) ) {
-				return;
+				return $this;
 			}
 
 			$this->link_title( sprintf( __( 'Activate %s', 'wpessential' ), $name ) );
 			$this->link( wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin ) );
 		} else {
 			if ( ! current_user_can( 'install_plugins' ) ) {
-				return;
+				return $this;
 			}
 
 			$plugin = str_replace( '.php', '', basename( $plugin ) );
