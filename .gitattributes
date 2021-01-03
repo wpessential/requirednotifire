@@ -1,7 +1,6 @@
 * text=auto
 CHANGELOG.md export-ignore
 tests/	export-ignore
-/src/	export-ignore
 bin/	export-ignore
 ci/		export-ignore
 .babelrc	export-ignore
