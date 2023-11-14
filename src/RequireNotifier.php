@@ -1,12 +1,9 @@
 <?php
-/*
- * Copyright (c) 2020. This file is copyright by WPEssential.
- */
 
 namespace WPEssentialRequireNotifier;
 
 /*
- * Require NotiFier is the open source library. Used to apply the notifications fire in WordPress admin panel.
+ * Require Notifier is the open source library. Used to apply the notifications fire in WordPress admin panel.
  *
  * (c) WPEssential <WordPress.essential@gmail.com>
  *
@@ -74,7 +71,8 @@ final class RequireNotifier
 	{
 		if ( true == $callback ) {
 			$this->dismiss = 'is-dismissible';
-		} else {
+		}
+		else {
 			$this->dismiss = '';
 		}
 		return $this;
@@ -114,12 +112,13 @@ final class RequireNotifier
 	 * Check whether the plugin is active by checking the active_plugins list.
 	 *
 	 * @param string $callback Base plugin path from plugins directory.
-	 * @return RequiredNotifire True, if in the active plugins list. False, not in the list.
+	 *
+	 * @return \WPEssentialRequireNotifier\RequireNotifier True, if in the active plugins list. False, not in the list.
 	 * @since 1.0.0
 	 */
 	public function plugin_check ( string $callback )
 	{
-		if ( ! function_exists( 'get_plugins' ) ) {
+		if ( ! \function_exists( 'get_plugins' ) ) {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
 
@@ -138,7 +137,8 @@ final class RequireNotifier
 
 			$this->link_title( sprintf( __( 'Activate %s', 'wpessential' ), $name ) );
 			$this->link( wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin ) );
-		} else {
+		}
+		else {
 			if ( ! current_user_can( 'install_plugins' ) ) {
 				return $this;
 			}
@@ -155,124 +155,124 @@ final class RequireNotifier
 	public function output ()
 	{
 		$screen = get_current_screen();
-		if ( isset( $screen->parent_file ) && 'plugins.php' === $screen->parent_file && 'update' === $screen->id ) {
+		if ( isset( $screen->parent_file ) && $screen->parent_file === 'plugins.php' && $screen->id === 'update' ) {
 			return;
 		}
 
 		?>
-        <div class="notice notice-<?php echo esc_attr( $this->type ) ?> <?php echo esc_attr( $this->dismiss ); ?> wpessential-notice">
+		<div class="notice notice-<?php echo esc_attr( $this->type ) ?> <?php echo esc_attr( $this->dismiss ); ?> wpessential-notice">
             <div class="wpessential-notice-inner">
                 <div class="wpessential-notice-icon">
-                    <img src="<?php echo esc_url( $this->icon ); ?>" alt="<?php echo esc_attr( $this->icon_alt ); ?>"/>
+                    <img src="<?php echo esc_url( $this->icon ); ?>" alt="<?php echo esc_attr( $this->icon_alt ); ?>" />
                 </div>
                 <div class="wpessential-notice-content">
                     <h3><?php echo esc_html__( $this->title ); ?></h3>
                     <p>
 						<?php _e( $this->desc, 'wpessential' ); ?>
                     </p>
-					<?php
-					if ( $this->learn_link && $this->learn_desc ) {
-						?>
-                        <a target="_blank" href="<?php echo esc_url( $this->learn_link ) ?>" title="<?php echo esc_attr( $this->learn_desc ) ?>"><?php _e( $this->learn_desc, 'wpessential' ); ?></a>
-						<?php
-					}
-					?>
+	                <?php
+	                if ( $this->learn_link && $this->learn_desc ) {
+		                ?>
+		                <a target="_blank" href="<?php echo esc_url( $this->learn_link ) ?>" title="<?php echo esc_attr( $this->learn_desc ) ?>"><?php _e( $this->learn_desc, 'wpessential' ); ?></a>
+		                <?php
+	                }
+	                ?>
                 </div>
-				<?php
-				if ( $this->link && $this->link_title ) {
-					?>
-                    <div class="wpessneital-install-now">
+	            <?php
+	            if ( $this->link && $this->link_title ) {
+		            ?>
+		            <div class="wpessneital-install-now">
                         <a class="button button-primary wpessneital-install-install-button" target="_blank" href="<?php echo esc_url( $this->link ) ?>" title="<?php echo esc_attr( $this->link_title ) ?>"><i class="dashicons dashicons-download"></i><?php _e( $this->link_title, 'wpessential' ); ?>
                         </a>
                     </div>
-					<?php
-				}
-				?>
+		            <?php
+	            }
+	            ?>
             </div>
         </div>
-        <style>
+		<style>
             .notice.wpessential-notice {
-                border-left-color: <?php echo esc_attr($this->css_color); ?> !important;
-                padding: 20px;
+	            border-left-color: <?php echo esc_attr($this->css_color); ?> !important;
+	            padding: 20px;
             }
 
             .rtl .notice.wpessential-notice {
-                border-right-color: <?php echo esc_attr($this->css_color); ?> !important;
+	            border-right-color: <?php echo esc_attr($this->css_color); ?> !important;
             }
 
             .notice.wpessential-notice .wpessential-notice-inner {
-                display: table;
-                width: 100%;
+	            display: table;
+	            width: 100%;
             }
 
             .notice.wpessential-notice .wpessential-notice-inner .wpessential-notice-icon,
             .notice.wpessential-notice .wpessential-notice-inner .wpessential-notice-content,
             .notice.wpessential-notice .wpessential-notice-inner .wpessneital-install-now {
-                display: table-cell;
-                vertical-align: middle;
+	            display: table-cell;
+	            vertical-align: middle;
             }
 
             .notice.wpessential-notice .wpessential-notice-icon {
-                color: <?php echo esc_attr($this->css_color); ?>;
-                font-size: 50px;
-                width: 50px;
+	            color: <?php echo esc_attr($this->css_color); ?>;
+	            font-size: 50px;
+	            width: 50px;
             }
 
             .notice.wpessential-notice .wpessential-notice-content {
-                padding: 0 20px;
+	            padding: 0 20px;
             }
 
             .notice.wpessential-notice p {
-                padding: 0;
-                margin: 0;
+	            padding: 0;
+	            margin: 0;
             }
 
             .notice.wpessential-notice h3 {
-                margin: 0 0 5px;
+	            margin: 0 0 5px;
             }
 
             .notice.wpessential-notice .wpessneital-install-now {
-                text-align: center;
+	            text-align: center;
             }
 
             .notice.wpessential-notice .wpessneital-install-now .wpessneital-install-install-button {
-                padding: 5px 30px;
-                height: auto;
-                line-height: 20px;
-                text-transform: capitalize;
+	            padding: 5px 30px;
+	            height: auto;
+	            line-height: 20px;
+	            text-transform: capitalize;
             }
 
             .notice.wpessential-notice .wpessneital-install-now .wpessneital-install-install-button i {
-                padding-right: 5px;
+	            padding-right: 5px;
             }
 
             .rtl .notice.wpessential-notice .wpessneital-install-now .wpessneital-install-install-button i {
-                padding-right: 0;
-                padding-left: 5px;
+	            padding-right: 0;
+	            padding-left: 5px;
             }
 
             .notice.wpessential-notice .wpessneital-install-now .wpessneital-install-install-button:active {
-                transform: translateY(1px);
+	            transform: translateY(1px);
             }
 
             @media (max-width: 767px) {
-                .notice.wpessential-notice {
-                    padding: 10px;
-                }
+	            .notice.wpessential-notice {
+		            padding: 10px;
+	            }
 
-                .notice.wpessential-notice .wpessential-notice-inner {
-                    display: block;
-                }
+	            .notice.wpessential-notice .wpessential-notice-inner {
+		            display: block;
+	            }
 
-                .notice.wpessential-notice .wpessential-notice-inner .wpessential-notice-content {
-                    display: block;
-                    padding: 0;
-                }
+	            .notice.wpessential-notice .wpessential-notice-inner .wpessential-notice-content {
+		            display: block;
+		            padding: 0;
+	            }
 
-                .notice.wpessential-notice .wpessential-notice-inner .wpessential-notice-icon,
-                .notice.wpessential-notice .wpessential-notice-inner .wpessneital-install-now {
-                    display: none;
-                }
+	            .notice.wpessential-notice .wpessential-notice-inner .wpessential-notice-icon,
+	            .notice.wpessential-notice .wpessential-notice-inner .wpessneital-install-now {
+		            display: none;
+	            }
             }
         </style>
 		<?php

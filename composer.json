@@ -1,33 +1,18 @@
 {
-	"name": "wpessential/wpessential-require-notifier",
-	"type": "library",
-	"description": "Its open source library. Used to apply the notifications fire in WordPress admin panel. If your theme used any plugin that is required. Used it to fire the notification.",
-	"keywords": [
+	"name" : "wpessential/wpessential-require-notifier",
+	"type" : "library",
+	"version" : "1.0.0",
+	"description" : "Its open source library. Used to apply the notifications fire in WordPress admin panel. If your theme used any plugin that is required. Used it to fire the notification.",
+	"keywords" : [
 		"fire",
 		"require"
 	],
-	"homepage": "https://wpessential.org/",
-	"require": {
+	"homepage" : "https://wpessential.org/",
+	"require" : {
 	},
-	"autoload": {
-		"psr-4": {
-			"WPEssentialRequireNotifier\\": "src/"
+	"autoload" : {
+		"psr-4" : {
+			"WPEssentialRequireNotifier\\" : "src/"
 		}
-	},
-	"scripts": {
-		"test": [
-			"@phpunit",
-			"@style-check"
-		],
-		"style-check": [
-			"@phpcs",
-			"@phpstan",
-			"@phpmd"
-		],
-		"phpunit": "phpunit --verbose",
-		"phpcs": "php-cs-fixer fix -v --diff --dry-run",
-		"phpstan": "phpstan analyse --configuration phpstan.neon --level 3 src tests",
-		"phpmd": "phpmd src text /phpmd.xml",
-		"phpdoc": "php phpdoc.php"
 	}
 }
