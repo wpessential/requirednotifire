@@ -2,6 +2,7 @@
 	"name" : "wpessential/wpessential-require-notifier",
 	"type" : "library",
 	"version" : "1.0.0",
+	"minimum-stability" : "stable",
 	"description" : "Its open source library. Used to apply the notifications fire in WordPress admin panel. If your theme used any plugin that is required. Used it to fire the notification.",
 	"keywords" : [
 		"fire",
