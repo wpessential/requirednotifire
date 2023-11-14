@@ -34,10 +34,12 @@
 		}
 	],
 	"homepage" : "https://wpessential.org/",
-	"require" : {},
 	"autoload" : {
 		"psr-4" : {
 			"WPEssentialRequireNotifier\\" : "src/"
 		}
+	},
+	"require" : {
+		"php" : ">=7.4"
 	}
 }
