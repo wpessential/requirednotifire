@@ -5,11 +5,36 @@
 	"description" : "Its open source library. Used to apply the notifications fire in WordPress admin panel. If your theme used any plugin that is required. Used it to fire the notification.",
 	"keywords" : [
 		"fire",
+		"require-notifire",
 		"require"
 	],
-	"homepage" : "https://wpessential.org/",
-	"require" : {
+	"readme" : "README.md",
+	"license" : [
+		"GPL-3.0-or-later"
+	],
+	"authors" : [
+		{
+			"name" : "WPEssential",
+			"email" : "wordpress.essential@gmail.com",
+			"homepage" : "https://wpessential.org",
+			"role" : "CEO"
+		}
+	],
+	"support" : {
+		"issues" : "https://github.com/wpessential/wpessential-require-notifier/issues",
+		"docs" : "https://github.com/wpessential/wpessential-require-notifier",
+		"forum" : "https://github.com/wpessential/wpessential-require-notifier/discussions",
+		"wiki" : "https://github.com/wpessential/wpessential-require-notifier/wiki",
+		"source" : "https://github.com/wpessential/wpessential-require-notifier.git"
 	},
+	"funding" : [
+		{
+			"type" : "patreon",
+			"url" : "https://www.patreon.com/WPEssential"
+		}
+	],
+	"homepage" : "https://wpessential.org/",
+	"require" : {},
 	"autoload" : {
 		"psr-4" : {
 			"WPEssentialRequireNotifier\\" : "src/"

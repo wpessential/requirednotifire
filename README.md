@@ -1,5 +1,6 @@
 # RequiredNotiFire
-RequiredNotiFire is the open source library. Used to apply the notifications fire in WordPress admin panel. If your theme used any plugin that is required. Used it to fire the notification.
+
+RequiredNotiFire is an open-source library. Used to apply the notifications fire in the WordPress admin panel. If your theme used any plugin that is required. Used it to fire the notification.
 
 ## Used
 
